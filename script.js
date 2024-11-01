@@ -38,6 +38,31 @@ inputSize.addEventListener("keydown", (event) => {
     }
 });
 
+function getRandomColor() {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return `#${randomColor}`;
+}
+
+// Function to change background color on hover
+function addHoverEffect() {
+    const gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            item.style.backgroundColor = getRandomColor(); // Change to desired color
+        });
+    });
+}
+
+// Add hover effect to initial grid
+addHoverEffect();
+
+// Re-add hover effect whenever the grid is recreated
+const originalCreateGrid = createGrid;
+createGrid = function(size) {
+    originalCreateGrid(size);
+    addHoverEffect();
+};
+
 // Update grid when dropdown changes
 fieldSizeDropdown.addEventListener("change", (event) => {
     const gridSize = parseInt(event.target.value);
