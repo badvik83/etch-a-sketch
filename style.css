@@ -27,10 +27,29 @@ body {
     align-items: center;
 }
 
-/* .game-field {
+.field-size-selector {
     display: flex;
-    flex-wrap: wrap;
-} */
+    flex-direction: row;
+    gap: 12px;
+    margin: 8px auto;
+}
+
+.field-size-selector button {
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.user-input {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin: 8px auto;
+}
+
+.user-input input {
+    width: 100px;
+    border-radius: 3px;
+}
 
 #game-field-container {
     display: flex;
