@@ -8,12 +8,20 @@ function createGrid(size) {
     gameFieldContainer.innerHTML = '';
     const itemSize = Math.floor(containerSize / size);
 
-    for (let i = 0; i < (size * size); i++) {
-        const gridItem = document.createElement('div');
-        gridItem.classList.add('grid-item');
-        gridItem.style.width = `${itemSize}px`;
-        gridItem.style.height = `${itemSize}px`;
-        gameFieldContainer.appendChild(gridItem);
+    // Create rows and cells
+    for (let row = 0; row < size; row++) {
+        const rowContainer = document.createElement('div');
+        rowContainer.classList.add('grid-row');
+
+        for (let col = 0; col < size; col++) {
+            const gridItem = document.createElement('div');
+            gridItem.classList.add('grid-item');
+            gridItem.style.width = `${itemSize}px`;
+            gridItem.style.height = `${itemSize}px`;
+            rowContainer.appendChild(gridItem);
+        }
+        
+        gameFieldContainer.appendChild(rowContainer);
     }
 }
 
